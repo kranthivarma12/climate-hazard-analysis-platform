@@ -1,6 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import {
-  Chart as ChartJS,
+  Chart as ChartJS,
+  BarController,
   CategoryScale,
   LinearScale,
   BarElement,
@@ -14,6 +15,7 @@ import { Chart } from 'react-chartjs-2';
 import { AnnualAggregate, HazardType, RegressionMetrics } from '../types';
 
 ChartJS.register(
+  BarController,
   CategoryScale,
   LinearScale,
   BarElement,
@@ -153,3 +155,5 @@ export const FrequencyChart: React.FC<FrequencyChartProps> = ({ aggregates, tren
     </div>
   );
 };
+
+
