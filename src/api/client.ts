@@ -1,6 +1,12 @@
 import { AnalysisParams, AnalysisResponse, HazardEvent, RegionPreset } from '../types';
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api/v1').replace(/\/$/, '');
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '');
+
+const API_BASE_URL = configuredBaseUrl
+  ? (configuredBaseUrl.endsWith('/api/v1')
+      ? configuredBaseUrl
+      : `${configuredBaseUrl}/api/v1`)
+  : '/api/v1';
 
 export class ApiError extends Error {
   status: number;
