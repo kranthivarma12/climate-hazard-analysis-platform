@@ -1,0 +1,6 @@
+{
+  "name": "Climate Hazard Analysis Platform",
+  "description": "Historical heatwave detection, threshold baseline modeling, and climate hazard trend analysis using Open-Meteo archive data and FastAPI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE"]
+}
