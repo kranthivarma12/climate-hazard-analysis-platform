@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Lightbulb, Info, AlertTriangle, ArrowRight } from 'lucide-react';
 import { TrendReport } from '../types';
 
@@ -27,13 +27,13 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ trendReport })
           <div className="mt-2 flex items-center justify-between text-xs font-mono">
             <div>
               <span className="text-slate-400 block text-[10px]">Early ({comparison.early_period_label})</span>
-              <span className="text-base font-bold text-slate-200">{comparison.early_mean_events.toFixed(2)}</span>
+              <span className="text-base font-bold text-slate-200">{(comparison.early_mean_events?.toFixed(2) ?? 'N/A')}</span>
               <span className="text-[11px] text-slate-400 ml-1">ev/yr</span>
             </div>
             <ArrowRight className="w-4 h-4 text-slate-600" />
             <div className="text-right">
               <span className="text-slate-400 block text-[10px]">Late ({comparison.late_period_label})</span>
-              <span className="text-base font-bold text-amber-300">{comparison.late_mean_events.toFixed(2)}</span>
+              <span className="text-base font-bold text-amber-300">{(comparison.late_mean_events?.toFixed(2) ?? 'N/A')}</span>
               <span className="text-[11px] text-slate-400 ml-1">ev/yr</span>
             </div>
           </div>
@@ -51,13 +51,13 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ trendReport })
           <div className="mt-2 flex items-center justify-between text-xs font-mono">
             <div>
               <span className="text-slate-400 block text-[10px]">Early ({comparison.early_period_label})</span>
-              <span className="text-base font-bold text-slate-200">{comparison.early_mean_days.toFixed(1)}</span>
+              <span className="text-base font-bold text-slate-200">{(comparison.early_mean_days?.toFixed(1) ?? 'N/A')}</span>
               <span className="text-[11px] text-slate-400 ml-1">days/yr</span>
             </div>
             <ArrowRight className="w-4 h-4 text-slate-600" />
             <div className="text-right">
               <span className="text-slate-400 block text-[10px]">Late ({comparison.late_period_label})</span>
-              <span className="text-base font-bold text-amber-300">{comparison.late_mean_days.toFixed(1)}</span>
+              <span className="text-base font-bold text-amber-300">{(comparison.late_mean_days?.toFixed(1) ?? 'N/A')}</span>
               <span className="text-[11px] text-slate-400 ml-1">days/yr</span>
             </div>
           </div>
@@ -75,7 +75,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ trendReport })
         <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
           {insights.map((insight, idx) => (
             <li key={idx} className="flex items-start gap-2">
-              <span className="text-amber-400 font-mono mt-0.5">·</span>
+              <span className="text-amber-400 font-mono mt-0.5">Â·</span>
               <span>{insight}</span>
             </li>
           ))}
@@ -97,3 +97,4 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ trendReport })
     </div>
   );
 };
+

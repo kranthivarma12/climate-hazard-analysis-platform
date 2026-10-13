@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { CheckCircle2, AlertCircle, Database, ShieldCheck } from 'lucide-react';
 import { DataQualityMetrics } from '../types';
 
@@ -45,7 +45,7 @@ export const DataQualityCard: React.FC<DataQualityCardProps> = ({
         <div className="p-2.5 bg-slate-950 border border-slate-800 rounded">
           <span className="text-slate-400 text-[10px] block">ANALYSIS COMPLETENESS</span>
           <span className="text-base font-bold text-white tabular-nums">
-            {metrics.completeness_percentage.toFixed(1)}%
+            {(metrics.completeness_percentage?.toFixed(1) ?? 'N/A')}%
           </span>
           <span className="text-[10px] text-slate-400 block mt-0.5">
             {metrics.valid_observations} / {metrics.total_expected_days} days
@@ -55,7 +55,7 @@ export const DataQualityCard: React.FC<DataQualityCardProps> = ({
         <div className="p-2.5 bg-slate-950 border border-slate-800 rounded">
           <span className="text-slate-400 text-[10px] block">BASELINE COMPLETENESS</span>
           <span className="text-base font-bold text-white tabular-nums">
-            {metrics.baseline_completeness_percentage.toFixed(1)}%
+            {(metrics.baseline_completeness_percentage?.toFixed(1) ?? 'N/A')}%
           </span>
           <span className="text-[10px] text-slate-400 block mt-0.5">
             {metrics.baseline_valid_days} valid baseline days
@@ -78,7 +78,7 @@ export const DataQualityCard: React.FC<DataQualityCardProps> = ({
             {metrics.invalid_temperatures_rejected}
           </span>
           <span className="text-[10px] text-slate-400 block mt-0.5">
-            Outside [-90°C, 65°C] bounds
+            Outside [-90Â°C, 65Â°C] bounds
           </span>
         </div>
       </div>
@@ -86,7 +86,7 @@ export const DataQualityCard: React.FC<DataQualityCardProps> = ({
       <div className="mt-3 text-[11px] text-slate-400 space-y-1 pt-2 border-t border-slate-800/60 font-mono">
         <div>Source: {sourceMetadata.source}</div>
         {sourceMetadata.elevation !== undefined && (
-          <div>Grid Elevation: {sourceMetadata.elevation} m · Timezone: {sourceMetadata.timezone || 'UTC'}</div>
+          <div>Grid Elevation: {sourceMetadata.elevation} m Â· Timezone: {sourceMetadata.timezone || 'UTC'}</div>
         )}
         {sourceMetadata.retrieval_timestamp && (
           <div>Ingestion Timestamp: {sourceMetadata.retrieval_timestamp}</div>
@@ -95,3 +95,4 @@ export const DataQualityCard: React.FC<DataQualityCardProps> = ({
     </div>
   );
 };
+
